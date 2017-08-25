@@ -3,7 +3,7 @@ from bomb import Bomb
 class Bomberman(Person):
     def __init__(self,lefttop_x,lefttop_y,type):
         Person.__init__(self,type,lefttop_x,lefttop_y)
-        self.det = 1
+        self._det = 1
         self.activeBombs = []
     def PlotBomb(self,grid,radius,timelimit,det):
         newBomb = Bomb(radius,timelimit,3,self.get_lefttop_x(),self.get_lefttop_y(),det)

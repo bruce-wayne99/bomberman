@@ -14,9 +14,9 @@ class Person():
     def set_lefttop_y(self,val):
         self._lefttop_y = val
     def set_detonation(self,val):
-        self.det = val
+        self._det = val
     def get_detonation(self):
-        return self.det
+        return self._det
     def PopulateGridWithPerson(self,grid):
         if self.type==1:
             x = self.get_lefttop_x()
@@ -56,53 +56,53 @@ class Person():
         if move_type==1:
             x = self.get_lefttop_x()
             y = self.get_lefttop_y()
-            grid[x][y]=str(self.det)
-            grid[x][y+1]=str(self.det)
-            grid[x][y+2]=str(self.det)
-            grid[x][y+3]=str(self.det)
-            grid[x+1][y]=str(self.det)
-            grid[x+1][y+1]=str(self.det)
-            grid[x+1][y+2]=str(self.det)
-            grid[x+1][y+3]=str(self.det)
+            grid[x][y]=str(self.get_detonation())
+            grid[x][y+1]=str(self.get_detonation())
+            grid[x][y+2]=str(self.get_detonation())
+            grid[x][y+3]=str(self.get_detonation())
+            grid[x+1][y]=str(self.get_detonation())
+            grid[x+1][y+1]=str(self.get_detonation())
+            grid[x+1][y+2]=str(self.get_detonation())
+            grid[x+1][y+3]=str(self.get_detonation())
         return grid
     def Move(self,direction,grid,move_type):
         if direction=='a':
-            if self.type == 1 and grid[self._lefttop_x][self._lefttop_y-3]=='E' and grid[self._lefttop_x+1][self._lefttop_y-3]=='E':
+            if self.type == 1 and grid[self.get_lefttop_x()][self.get_lefttop_y()-3]=='E' and grid[self.get_lefttop_x()+1][self.get_lefttop_y()-3]=='E':
                 return self.BomberManSuicide('a',grid,move_type)
-            if grid[self._lefttop_x][self._lefttop_y-1]==' ' or move_type == 3:
+            if grid[self.get_lefttop_x()][self.get_lefttop_y()-1]==' ' or move_type == 3:
                 grid = self.ClearGridOfPerson(grid,move_type)
-                self.set_lefttop_x(self._lefttop_x)
-                self.set_lefttop_y(self._lefttop_y-4)
+                self.set_lefttop_x(self.get_lefttop_x())
+                self.set_lefttop_y(self.get_lefttop_y()-4)
                 return self.PopulateGridWithPerson(grid)
             else:
                 return grid
         if direction=='d':
-            if self.type == 1 and grid[self._lefttop_x][self._lefttop_y+5]=='E' and grid[self._lefttop_x+1][self._lefttop_y+5]=='E':
+            if self.type == 1 and grid[self.get_lefttop_x()][self.get_lefttop_y()+5]=='E' and grid[self.get_lefttop_x()+1][self.get_lefttop_y()+5]=='E':
                 return self.BomberManSuicide('d',grid,move_type)
-            if grid[self._lefttop_x][self._lefttop_y+4]==' ' or move_type == 3:
+            if grid[self.get_lefttop_x()][self.get_lefttop_y()+4]==' ' or move_type == 3:
                 grid = self.ClearGridOfPerson(grid,move_type)
-                self.set_lefttop_x(self._lefttop_x)
-                self.set_lefttop_y(self._lefttop_y+4)
+                self.set_lefttop_x(self.get_lefttop_x())
+                self.set_lefttop_y(self.get_lefttop_y()+4)
                 return self.PopulateGridWithPerson(grid)
             else:
                 return grid
         if direction=='w':
-            if self.type == 1 and grid[self._lefttop_x-2][self._lefttop_y+1]=='E' and grid[self._lefttop_x-1][self._lefttop_y+1]=='E':
+            if self.type == 1 and grid[self.get_lefttop_x()-2][self.get_lefttop_y()+1]=='E' and grid[self.get_lefttop_x()-1][self.get_lefttop_y()+1]=='E':
                 return self.BomberManSuicide('w',grid,move_type)
-            if grid[self._lefttop_x-1][self._lefttop_y]==' ' or move_type == 3:
+            if grid[self.get_lefttop_x()-1][self.get_lefttop_y()]==' ' or move_type == 3:
                 grid = self.ClearGridOfPerson(grid,move_type)
-                self.set_lefttop_x(self._lefttop_x-2)
-                self.set_lefttop_y(self._lefttop_y)
+                self.set_lefttop_x(self.get_lefttop_x()-2)
+                self.set_lefttop_y(self.get_lefttop_y())
                 return self.PopulateGridWithPerson(grid)
             else:
                 return grid
         if direction=='s':
-            if self.type == 1 and grid[self._lefttop_x+2][self._lefttop_y+1]=='E' and grid[self._lefttop_x+3][self._lefttop_y+1]=='E':
+            if self.type == 1 and grid[self.get_lefttop_x()+2][self.get_lefttop_y()+1]=='E' and grid[self.get_lefttop_x()+3][self.get_lefttop_y()+1]=='E':
                 return self.BomberManSuicide('s',grid,move_type)
-            if grid[self._lefttop_x+2][self._lefttop_y]==' ' or move_type == 3:
+            if grid[self.get_lefttop_x()+2][self.get_lefttop_y()]==' ' or move_type == 3:
                 grid = self.ClearGridOfPerson(grid,move_type)
-                self.set_lefttop_x(self._lefttop_x+2)
-                self.set_lefttop_y(self._lefttop_y)
+                self.set_lefttop_x(self.get_lefttop_x()+2)
+                self.set_lefttop_y(self.get_lefttop_y())
                 return self.PopulateGridWithPerson(grid)
             else:
                 return grid

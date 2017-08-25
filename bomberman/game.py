@@ -72,7 +72,6 @@ while Level<=3:
 
     def CheckToEnd(max_lifes,enemies):
         if max_lifes == -1:
-            print(Fore.RED+"LIFES AVAILABLE : ",Fore.WHITE+str(max_lifes),'\t',Fore.MAGENTA+"YOUR SCORE : ",Fore.WHITE+str(TotalScore+score),'\t',Fore.GREEN+"TIME : ",Fore.WHITE+str(Timer),'\t',Fore.CYAN+"LEVEL :",Fore.WHITE+str(Level))
             a.PrintBoard(b)
             print(Fore.WHITE+"GAME OVER")
             print(Fore.BLUE+"YOUR SCORE: ",Fore.WHITE+str(TotalScore+score))

@@ -3,11 +3,15 @@ from person import Person
 class Bomb(Person):
     def __init__(self,radius,timelimit,type,lefttop_x,lefttop_y,det):
         Person.__init__(self,type,lefttop_x,lefttop_y)
-        self.radius = radius
-        self.timelimit = timelimit
-        self.det = det
+        self._radius = radius
+        self._timelimit = timelimit
+        self._det = det
+    def get_timelimit(self):
+        return self._timelimit
+    def set_timelimit(self,val):
+        self._timelimit = val
     def CheckIfTime(self,grid,detonation,enemycount,bombercount,score):
-        if detonation == self.timelimit:
+        if detonation == self.get_timelimit():
             return self.Explode(grid,enemycount,bombercount,score)
         else:
             return [grid,enemycount,bombercount,[],[],score]
