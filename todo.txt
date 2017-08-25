@@ -1,0 +1,6 @@
+obey laws
+#timer
+#explosion
+#change color
+#change symbols
+#brick points
